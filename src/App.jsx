@@ -10,10 +10,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [watchTime,setWatchTime] = useState("")
+  const [watchTime,setWatchTime] = useState(0)
+  console.log(watchTime)
 const handleWatchTime = (time)=>{
-const previousWatchTime = JSON.parse(localStorage.getItem("watchTime"));
-console.log(previousWatchTime)
+const previousWatchTime = JSON.parse(localStorage.getItem("watchTime"))
 if(previousWatchTime){
 const sum = previousWatchTime + time;
 localStorage.setItem("watchTime", sum);
@@ -23,6 +23,9 @@ else{
 localStorage.setItem("watchTime", time);
 setWatchTime(time)
 }
+console.log(time)
+// const setTime = watchTime+time
+setWatchTime((setTime)=> setTime + time)
 }
   return (
     <div className="App">
@@ -32,7 +35,10 @@ setWatchTime(time)
         <Home handleWatchTime={handleWatchTime}></Home>
       </div>
       <div className=" side-cart col-md-4 card ">
-        <SideCard watchTime={watchTime}></SideCard>
+        <SideCard watchTime={watchTime}
+setWatchTime={setWatchTime}
+
+        ></SideCard>
       </div>
     </div>
     <ToastContainer></ToastContainer>

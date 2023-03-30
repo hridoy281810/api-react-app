@@ -2,6 +2,7 @@ import React from 'react';
 import './SingleCart.css'
 const SingleCart = ({movie,handleWatchTime}) => {
     const {movieName,poster,watchTime,imdbRating,description,category} = movie;
+    console.log(watchTime)
     return (
         <div className='side-cart'>
             <div className="movie-cart card text-center w-100 m-auto col-md-6">
